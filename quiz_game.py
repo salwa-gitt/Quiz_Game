@@ -9,6 +9,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 def api_call():
+    # Letting the user choose their own topic
     topic = input("Choose the topic: ")
     API_KEY = os.getenv("QUIZ_GAME_GOOGLE_API_KEY")
     
@@ -67,9 +68,10 @@ def get_question():
 
 
 def ask_question(question, level_name):
+    # Printing difficulty level
      print(f"\n=== {level_name.upper()} QUESTIONS ===")
      
-
+    # Printing Question
      print("Q:", question['question'])
 
     # Print options with letters
@@ -77,21 +79,21 @@ def ask_question(question, level_name):
         letter = string.ascii_lowercase[i]
         print(f"{letter}. {option}")
     
-    # Convert the correct answer text into it's letter
+    # Convert the correct answer text into its letter
      for i, option in enumerate(question["options"]):
         if option == question["answer"]:
             correct_letter = string.ascii_lowercase[i]
             break
         
      user_input = ""
-     
+     # Preventing user from mistyping
      while user_input not in ['a', 'b', 'c', 'd']:
          user_input = input("\nYour answer: ").strip().lower()
          if user_input not in ['a', 'b', 'c', 'd']:
              print("\nInvalid input!")
 
 
-
+    
      if user_input == correct_letter :
         print("\nCorrect")
         return True
@@ -107,13 +109,13 @@ def play_quiz(quiz):
 
      # Levels in order
     levels = [("easy", "Easy"), ("medium", "Medium"), ("hard", "Hard")]
-
+    
     for key, name in levels:
-
+        # Getting questions using difficulty level
         if key not in quiz:
             print(f"⚠️ No questions found for {key}")
             continue
-
+        # Getting questions one by one
         for question in quiz[key]:
 
             if not ask_question(question, name):
