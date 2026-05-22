@@ -1,123 +1,115 @@
-# AI Quiz Game (Python + Gemini API)
+# 🧠 AI Quiz Game (Python + Gemini API)
 
-An interactive terminal-based quiz game powered by Google’s Gemini API. The game dynamically generates multiple-choice questions based on a user-selected topic and challenges the player across three difficulty levels: Easy, Medium, and Hard.
+An interactive console-based quiz game that generates multiple-choice questions dynamically using Google's Gemini API. The game includes different difficulty levels and tests users progressively from easy to hard questions.
 
-## Features
+---
 
-- AI-generated MCQs using Gemini API
-- User-defined quiz topic
-- Three difficulty levels:
-  - Easy (5 questions)
-  - Medium (5 questions)
-  - Hard (5 questions)
-- Interactive command-line gameplay
-- Answer validation with instant feedback
-- Score tracking system
-- Game over on first wrong answer (challenge mode)
+## 🚀 Features
 
-## Tech Stack
+- 🤖 AI-generated MCQs using Gemini API
+- 📊 Three difficulty levels (Easy, Medium, Hard)
+- 🎯 Instant answer validation
+- 🧩 Dynamic question parsing from JSON
+- 🛑 Game ends on incorrect answer
+- 🧠 Score tracking system
+- 🔄 Fully interactive CLI experience
 
-- Python 3
-- Google Generative Language API (Gemini)
+---
+
+## 🛠️ Tech Stack
+
+- Python
+- Google Gemini API (Generative AI)
 - Requests library
-- Regex (for response parsing)
-- dotenv (for API key security)
+- JSON handling
+- Regex parsing
+- Environment variables (`dotenv`)
 
-## Project Structure
+---
 
-```bash
-├── main.py
-├── .env
-├── requirements.txt
-└── README.md
+## 🧠 How It Works
+
+1. User selects a topic
+2. Program sends request to Gemini API
+3. AI generates MCQs in JSON format
+4. Questions are parsed and organized by difficulty
+5. User answers each question step-by-step
+6. Game ends on wrong answer or completion
+
+---
+
+## 📌 Game Flow
+
+```
+Easy → Medium → Hard
+      ↓
+Correct Answer → Next Question
+Wrong Answer → Game Over
 ```
 
-## Setup Instructions
+---
 
-### 1. Clone the repository
-```bash
-git clone https://github.com/your-username/ai-quiz-game.git
-cd ai-quiz-game
-```
-
-### 2. Install dependencies
-```bash
-pip install -r requirements.txt
-```
-
-### 3. Add API Key
-Create a `.env` file and add your Gemini API key:
-
-```env
-QUIZ_GAME_GOOGLE_API_KEY=your_api_key_here
-```
-
-### 4. Run the game
-```bash
-python main.py
-```
-
-## How It Works
-
-1. User enters a topic (e.g., Python, AI, History)
-2. Program sends a prompt to Gemini API
-3. AI returns structured MCQs in JSON format
-4. Game parses questions into difficulty levels
-5. Player answers questions in sequence
-6. One wrong answer ends the game
-
-## Example Gameplay
+## 💡 Example Usage
 
 ```
 Choose the topic: Python
 
 === EASY QUESTIONS ===
-Q: What is Python?
-a. A snake
-b. A programming language
-c. A database
-d. A game
+Q: What is a variable in Python?
+a. A function
+b. A storage container
+c. A loop
+d. A library
 
 Your answer: b
 Correct
 ```
 
-## Key Functions
+---
 
-### `api_call()`
-Builds and sends request to Gemini API with prompt for MCQs.
+## 🔑 Environment Setup
 
-### `get_question()`
-Fetches and cleans API response into structured JSON.
+Create a `.env` file:
 
-### `ask_question(question, level_name)`
-Handles question display, user input, and answer validation.
+```
+QUIZ_GAME_GOOGLE_API_KEY=your_api_key_here
+```
 
-### `play_quiz(quiz)`
-Controls game flow across difficulty levels and score tracking.
+---
 
-## Concepts Demonstrated
+## 📚 Concepts Used
 
-- API integration (REST)
+- REST API integration
+- AI-generated content handling
 - JSON parsing
-- Regex data extraction
-- Environment variables (.env security)
-- Modular function design
-- CLI-based game logic
+- Regex extraction
+- Loops & conditionals
+- Modular programming
+- CLI design
 
-## Future Improvements
+---
 
-- Add multiple lives instead of instant game over
-- Add timer per question
-- Store high scores locally or in database
-- Add GUI version (Tkinter or web app)
-- Add categories + difficulty scaling system
-- Multiplayer mode
+## 🔮 Future Improvements
 
-## Learning Outcome
+- Add timer-based questions
+- Add score leaderboard
+- Add difficulty selection menu
+- Add GUI version (Tkinter / Web app)
+- Save user progress
+- Add multiple AI models support
 
-This project demonstrates how AI APIs can be integrated into Python applications to build dynamic, interactive systems beyond static datasets.
+---
 
-## Author
+## 🎯 Learning Outcome
+
+This project demonstrates:
+- Real-world AI API integration
+- Dynamic data handling from external sources
+- Structured game logic design
+- Clean modular Python architecture
+
+---
+
+## 👨‍💻 Author
 
 Built by Salwa
